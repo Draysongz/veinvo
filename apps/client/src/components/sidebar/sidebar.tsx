@@ -21,7 +21,7 @@ export default function SidebarNavigation() {
     if (!isCollapsed) {
       setTimeout(() => setShowText(true), 400)
     } else {
-      setShowText(false)
+      setTimeout(() => setShowText(false))
     }
   }, [isCollapsed])
   
@@ -39,7 +39,7 @@ export default function SidebarNavigation() {
   ]
   
   return (
-    <div className={`${isCollapsed ? 'w-18' : 'w-84'} bg-black text-white h-[98%] flex flex-col rounded-[20px] self-center transition-all duration-500 ease-in-out`}>
+    <div className={`${isCollapsed ? 'w-18 duration-200' : 'w-84 duration-500'} bg-black text-white h-[98%] flex flex-col rounded-[20px] transition-all ease-in`}>
      
       <div className={`${isCollapsed ? 'p-3 justify-center' : 'p-5 justify-between '} flex items-center border-b border-gray-800 relative transition-all duration-500 ease-in-out`}>
         <div className="flex items-center gap-2">
@@ -78,7 +78,7 @@ export default function SidebarNavigation() {
                   title={isCollapsed ? item.label : undefined}
                 >
                   <item.icon className="w-5 h-5 shrink-0" />
-                  {showText && !isCollapsed && <span>{item.label}</span>}
+                  {showText && <span>{item.label}</span>}
                 </Link>
               )
             })}
@@ -106,7 +106,7 @@ export default function SidebarNavigation() {
                       title={isCollapsed ? item.label : undefined}
                       >
                   <item.icon className="w-5 h-5 shrink-0" />
-                  {showText && !isCollapsed && <span>{item.label}</span>}
+                  {showText && <span>{item.label}</span>}
                 </Link>
               )
             })}

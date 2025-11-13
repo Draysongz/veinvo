@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight, ChevronRight, UserRound } from "lucide-react";
 
 export default function HeaderNavigation() {
   return (
-    <header className="h-16 p-4 flex justify-between items-center ">
+    <header className="h-12 p-4 flex justify-between items-center ">
       <div className="flex items-center gap-8">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 hover:bg-purple-300 flex items-center justify-center rounded-full">
