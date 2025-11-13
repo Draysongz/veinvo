@@ -12,14 +12,14 @@ import {
   ChevronsRight
 } from 'lucide-react'
 
-export default function Sidebar() {
+export default function SidebarNavigation() {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [showText, setShowText] = useState(true)
   const location = useLocation()
 
   useEffect(() => {
     if (!isCollapsed) {
-      setTimeout(() => setShowText(true), 200)
+      setTimeout(() => setShowText(true), 400)
     } else {
       setShowText(false)
     }
@@ -39,7 +39,7 @@ export default function Sidebar() {
   ]
   
   return (
-    <div className={`${isCollapsed ? 'w-18' : 'w-64'} bg-black text-white h-[98%] flex flex-col rounded-[20px] self-center transition-all duration-500 ease-in-out`}>
+    <div className={`${isCollapsed ? 'w-18' : 'w-84'} bg-black text-white h-[98%] flex flex-col rounded-[20px] self-center transition-all duration-500 ease-in-out`}>
      
       <div className={`${isCollapsed ? 'p-3 justify-center' : 'p-5 justify-between '} flex items-center border-b border-gray-800 relative transition-all duration-500 ease-in-out`}>
         <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function Sidebar() {
         </div>
         <button 
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="text-gray-400 hover:text-white transition-colors"
+          className="text-gray-400 hover:text-white transition-colors hover:cursor-pointer"
         >
           {isCollapsed ? <div className='w-10 h-10 rounded-full bg-purple-600 flex justify-center items-center'><ChevronsRight className="w-4 h-4 text-white"/></div> : <ChevronsLeft className="w-5 h-5 text-white" />}
         </button>
@@ -63,7 +63,7 @@ export default function Sidebar() {
               MAIN
             </h3>
           )}
-          <nav className="space-y-2">
+          <nav className="space-y-4">
             {mainMenuItems.map((item) => {
               const isActive = location.pathname === item.path
               return (
@@ -91,7 +91,7 @@ export default function Sidebar() {
               OTHERS
             </h3>
           )}
-          <nav className="space-y-2">
+          <nav className="space-y-4">
             {otherMenuItems.map((item) => {
               const isActive = location.pathname === item.path
               return (
